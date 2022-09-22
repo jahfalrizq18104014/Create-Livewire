@@ -9,17 +9,21 @@
             </tr>
         </thead>
         <tbody>
+                
+            @foreach ( $users as $index=> $items)
             <tr>
-                <td>1</td>
-                <td>Jahfal Rizqi</td>
-                <td>jahfal@gmail.com</td>
+                <td>{{ $index + 1}}</td>
+                <td>{{ $item->name }}</td>
+                <td>{{ $item->email }}</td>
                 <td>
-                    <a href="" class="badge bg-primary">detail</a>
+                    <a href=""{{route('user.details',$item->id)}} class="badge bg-primary">detail</a>
                     <a href="" class="badge bg-warning">submit</a>
-                    <a href="" class="badge bg-danger">delete   </a>
+                    <a href="" class="badge bg-danger">delete</a>
 
                 </td>
             </tr>
+            @endforeach
+        
         </tbody>
     </table>
 </div>
